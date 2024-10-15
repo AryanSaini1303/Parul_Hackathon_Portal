@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 export default function LandingPage({ params }) {
   const [session, setSession] = useState();
   const router = useRouter();
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     phoneNumber: "",
@@ -34,10 +35,8 @@ export default function LandingPage({ params }) {
     // Extract email from session
     const email = session?.user?.email; // Ensure session is available
 
-    // Log for debugging
-    console.log("Email:", email); // Check if email is being captured
-
     try {
+      setLoading(true);
       const response = await fetch("/api/register", {
         method: "POST",
         headers: {
@@ -53,7 +52,10 @@ export default function LandingPage({ params }) {
       console.log("Response:", result);
 
       if (response.ok) {
-        alert("User registered successfully");
+        setLoading(false);
+        signOut({ callbackUrl: "/" }).then(() => {
+          router.push("/");
+        });
       } else {
         alert("Error registering user");
       }
@@ -128,8 +130,10 @@ export default function LandingPage({ params }) {
               required
             />
             <br />
+            <button type="button"><a href="https://game.everdawn.io/enter/register/?referral=web3hackselaunch" target="_blank">Create EverDrawn Login</a></button>
             <button type="submit">Submit</button>
           </form>
+          {loading && <h1>Saving User Data</h1>}
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
