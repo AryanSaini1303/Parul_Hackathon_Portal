@@ -13,7 +13,7 @@ export default function LandingPage({ params }) {
     name: "",
     university: "",
     purpose: "",
-    screenshot: "",
+    referral: "",
   });
 
   useEffect(() => {
@@ -121,11 +121,11 @@ export default function LandingPage({ params }) {
               required
             />
             <br />
-            <label htmlFor="screenshot">Screenshot Link</label>
+            <label htmlFor="referral">Referral Code</label>
             <input
               type="text"
-              name="screenshot"
-              value={formData.screenshot}
+              name="referral"
+              value={formData.referral}
               onChange={handleInputChange}
               required
             />
