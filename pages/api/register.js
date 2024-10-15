@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { name, phoneNumber, email, university, purpose, screenshot } =req.body;
+    const { name, phoneNumber, email, university, purpose, referral } =req.body;
     try {
       // Create user in the database
       const user = await prisma.user.create({
