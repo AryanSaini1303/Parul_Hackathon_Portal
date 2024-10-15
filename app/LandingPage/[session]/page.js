@@ -10,6 +10,9 @@ export default function LandingPage({ params }) {
   const [formData, setFormData] = useState({
     phoneNumber: "",
     name: "",
+    university: "",
+    purpose: "",
+    screenshot: "",
   });
 
   useEffect(() => {
@@ -59,10 +62,6 @@ export default function LandingPage({ params }) {
     }
   };
 
-  function handleScreenshot(e){
-    console.log(e.target.value);
-  }
-
   return (
     <>
       {session ? (
@@ -90,7 +89,7 @@ export default function LandingPage({ params }) {
               onChange={handleInputChange}
               required
             />
-            <br/>
+            <br />
             <label htmlFor="phoneNumber">Enter your phone number: </label>
             <input
               type="text"
@@ -99,9 +98,36 @@ export default function LandingPage({ params }) {
               onChange={handleInputChange}
               required
             />
-            <br/>
-            <input type="file" name="screenshot" id="" onChange={handleScreenshot}/>
-            <br/>
+            <br />
+            <label htmlFor="university">University</label>
+            <input
+              type="text"
+              name="university"
+              id=""
+              value={formData.university}
+              onChange={handleInputChange}
+              required
+            />
+            <br />
+            <label htmlFor="purpose">Purpose</label>
+            <input
+              type="text"
+              name="purpose"
+              id=""
+              value={formData.purpose}
+              onChange={handleInputChange}
+              required
+            />
+            <br />
+            <label htmlFor="screenshot">Screenshot Link</label>
+            <input
+              type="text"
+              name="screenshot"
+              value={formData.screenshot}
+              onChange={handleInputChange}
+              required
+            />
+            <br />
             <button type="submit">Submit</button>
           </form>
         </>
