@@ -1,4 +1,5 @@
 "use client";
+import BackgroundVideo from "@/components/BackgroundVideo";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -80,8 +81,7 @@ export default function LandingPage({ params }) {
           >
             Sign Out
           </button>
-
-          {/* Form for user input */}
+          <BackgroundVideo />
           <form onSubmit={handleFormSubmit}>
             <label htmlFor="name">Enter Your Name</label>
             <input
