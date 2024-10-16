@@ -3,6 +3,7 @@ import BackgroundVideo from "@/components/BackgroundVideo";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import styles from "./page.module.css";
 
 export default function LandingPage({ params }) {
   const [session, setSession] = useState();
@@ -69,71 +70,104 @@ export default function LandingPage({ params }) {
     <>
       {session ? (
         <>
-          <h1>
-            Signed In!, {session.user.name} {session.user.email}
-          </h1>
+          <BackgroundVideo />
+          <section className={styles.header}>
+            <h1>Registration Form</h1>
+          </section>
+          <div className={styles.card}>
+            <form onSubmit={handleFormSubmit}>
+              <div className={styles.firstSection}>
+                <section>
+                  <label htmlFor="name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </section>
+                <section>
+                  <label htmlFor="phoneNumber">Contact</label>
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </section>
+                <section>
+                  <label htmlFor="university">University</label>
+                  <input
+                    type="text"
+                    name="university"
+                    value={formData.university}
+                    onChange={handleInputChange}
+                    required
+                  />
+                </section>
+                <section>
+                  <label htmlFor="github">Github</label>
+                  <input
+                    type="text"
+                    name="github"
+                    value={formData.github}
+                    onChange={handleInputChange}
+                  />
+                </section>
+              </div>
+              <br />
+              <section className={styles.secondSection}>
+                <section className={styles.purpose}>
+                  <label htmlFor={styles.purpose}>
+                    Why do you want to participate?
+                  </label>
+                  <textarea
+                    type="text"
+                    name="purpose"
+                    value={formData.purpose}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
+                    cols={5}
+                  />
+                </section>
+                <section className={styles.referral}>
+                  <label htmlFor={styles.referral}>Referral code from Everdrawn</label>
+                  <button type="button">
+                    <a
+                      href="https://game.everdawn.io/enter/register/?referral=web3hackselaunch"
+                      target="_blank"
+                    >
+                      Create EverDrawn Login
+                    </a>
+                  </button>
+                  <input
+                    type="text"
+                    name="referral"
+                    value={formData.referral}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Your Referral Code"
+                  />
+                </section>
+              </section>
+              <br />
+              <button type="submit" className={styles.submitBtn}>Submit</button>
+            </form>
+          </div>
           <button
             onClick={() => {
               signOut({ callbackUrl: "/" }).then(() => {
                 router.push("/");
               });
             }}
+            className={styles.signOut}
           >
             Sign Out
           </button>
-          <BackgroundVideo />
-          <form onSubmit={handleFormSubmit}>
-            <label htmlFor="name">Enter Your Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleInputChange}
-              required
-            />
-            <br />
-            <label htmlFor="phoneNumber">Enter your phone number: </label>
-            <input
-              type="text"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleInputChange}
-              required
-            />
-            <br />
-            <label htmlFor="university">University</label>
-            <input
-              type="text"
-              name="university"
-              id=""
-              value={formData.university}
-              onChange={handleInputChange}
-              required
-            />
-            <br />
-            <label htmlFor="purpose">Purpose</label>
-            <input
-              type="text"
-              name="purpose"
-              id=""
-              value={formData.purpose}
-              onChange={handleInputChange}
-              required
-            />
-            <br />
-            <label htmlFor="referral">Referral Code</label>
-            <input
-              type="text"
-              name="referral"
-              value={formData.referral}
-              onChange={handleInputChange}
-              required
-            />
-            <br />
-            <button type="button"><a href="https://game.everdawn.io/enter/register/?referral=web3hackselaunch" target="_blank">Create EverDrawn Login</a></button>
-            <button type="submit">Submit</button>
-          </form>
-          {loading && <h1>Saving User Data</h1>}
+          {loading && <h1 style={{textAlign:"center", color:"white", fontFamily:"'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", margin:"0.5rem"}}>Saving User Data</h1>}
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
