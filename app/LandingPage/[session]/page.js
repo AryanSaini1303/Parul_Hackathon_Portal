@@ -9,7 +9,6 @@ export default function LandingPage({ params }) {
   const [session, setSession] = useState();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     phoneNumber: "",
     name: "",
@@ -17,6 +16,18 @@ export default function LandingPage({ params }) {
     purpose: "",
     referral: "",
   });
+
+  const [screenWidth, setScreenWidth] = useState();
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setSession(JSON.parse(decodeURIComponent(params.session)));
@@ -129,12 +140,14 @@ export default function LandingPage({ params }) {
                     value={formData.purpose}
                     onChange={handleInputChange}
                     required
-                    rows={5}
-                    cols={5}
+                    rows={screenWidth > 426 ? 5 : 3}
+                    cols={screenWidth > 426 ? 5 : 3}
                   />
                 </section>
                 <section className={styles.referral}>
-                  <label htmlFor={styles.referral}>Referral code from Everdrawn</label>
+                  <label htmlFor={styles.referral}>
+                    Referral code from Everdrawn
+                  </label>
                   <button type="button">
                     <a
                       href="https://game.everdawn.io/enter/register/?referral=web3hackselaunch"
@@ -154,20 +167,36 @@ export default function LandingPage({ params }) {
                 </section>
               </section>
               <br />
-              <button type="submit" className={styles.submitBtn}>Submit</button>
+              <button type="submit" className={styles.submitBtn}>
+                Submit
+              </button>
             </form>
           </div>
-          <button
-            onClick={() => {
-              signOut({ callbackUrl: "/" }).then(() => {
-                router.push("/");
-              });
-            }}
-            className={styles.signOut}
-          >
-            Sign Out
-          </button>
-          {loading && <h1 style={{textAlign:"center", color:"white", fontFamily:"'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif", margin:"0.5rem"}}>Saving User Data</h1>}
+          {screenWidth > 426 && (
+            <button
+              onClick={() => {
+                signOut({ callbackUrl: "/" }).then(() => {
+                  router.push("/");
+                });
+              }}
+              className={styles.signOut}
+            >
+              Sign Out
+            </button>
+          )}
+          {loading && (
+            <h1
+              style={{
+                textAlign: "center",
+                color: "white",
+                fontFamily:
+                  "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif",
+                margin: "0.5rem",
+              }}
+            >
+              Saving User Data
+            </h1>
+          )}
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
