@@ -7,6 +7,18 @@ import BackgroundVideo from "@/components/BackgroundVideo";
 export default function Home() {
   const { data: session } = useSession();
   const router = useRouter();
+  const [screenWidth, setScreenWidth] = useState();
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  console.log(screenWidth);
   useEffect(() => {
     session &&
       router.push(
@@ -17,7 +29,7 @@ export default function Home() {
     <>
       <BackgroundVideo />
       <section className={styles.header}>
-        <h1>Parul Hack-Verse</h1>
+        <h1>PARUL HACK-VERSE</h1>
       </section>
       <section className={styles.card}>
         <div className={styles.textData}>
@@ -94,11 +106,13 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <img
-          src="/videos/gif_blob.gif"
-          alt="Animated GIF"
-          className={styles.animatedGif}
-        />
+        {screenWidth > 426 && (
+          <img
+            src="/videos/gif_blob.gif"
+            alt="Animated GIF"
+            className={styles.animatedGif}
+          />
+        )}
       </section>
     </>
   );
