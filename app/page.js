@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -76,12 +76,13 @@ export default function Home() {
                   <h5>6.45 Lakh rupees</h5>
                 </div>
               </div>
-              <section className={styles.logos}>
-                <img src="/images/GKM_logo.png" alt="" />
-                <img src="/images/Nexium_logo.png" alt="" />
-                <img src="/images/RYM_logo.png" alt="" />
-              </section>
             </div>
+            <section className={styles.logos}>
+              <img src="/images/GKM_logo.png" alt="" />
+              <img src="/images/Nexium_logo.png" alt="" />
+              <img src="/images/RYM_logo.png" alt="" />
+              <img src="/images/University_logo.png" alt="" />
+            </section>
           </div>
           <div className={styles.registerbtn}>
             <button
