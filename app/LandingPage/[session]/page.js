@@ -18,6 +18,7 @@ export default function LandingPage({ params }) {
   });
   const [studentCount, setStudentCount] = useState();
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isValidated, setIsValidated] = useState(false);
 
   useEffect(() => {
     // useEffect doesn't take async function as it's callback directly, instead use the async function inside of it
@@ -43,7 +44,11 @@ export default function LandingPage({ params }) {
 
   useEffect(() => {
     if (session) {
-      if (session.user.email == "yograj.rr@gmail.com") {
+      if (
+        session.user.email == "yograj.rr@gmail.com" ||
+        session.user.email == "omprakash.shukla@paruluniversity.ac.in" ||
+        session.user.email == "technicalevents@paruluniversity.ac.in"
+      ) {
         setIsAdmin(true);
       }
     }
@@ -67,15 +72,32 @@ export default function LandingPage({ params }) {
 
   // Handle input changes
   const handleInputChange = (e) => {
+    const isValidReferralUrl = (str) => {
+      const regex =
+        /^https:\/\/game\.everdawn\.io\/enter\/register\?referral=[a-zA-Z0-9]+$/;
+      return regex.test(str);
+    };
+    if (e.target.name == "referral") {
+      if (isValidReferralUrl(e.target.value)) {
+        setIsValidated(true);
+      }
+    }
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+  useEffect(() => {
+    console.log(isValidated);
+  }, [isValidated]);
 
   // Handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    if (!isValidated) {
+      alert("Enter a valid referral code!");
+      return false;
+    }
     // Extract email from session
     const email = session?.user?.email; // Ensure session is available
     try {
