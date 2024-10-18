@@ -209,12 +209,6 @@
 }
 
 @media only screen and (max-width: 375px) {
-  .signOut {
-    /* top: 90%;
-    left: 4%;
-    width: 15vw;
-    transform: none; Remove the transform to prevent the shift */
-  }
   .signOut:hover {
     transform: none; /* Prevent scaling on hover */
     box-shadow: none;
