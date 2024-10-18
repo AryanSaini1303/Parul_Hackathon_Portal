@@ -200,9 +200,8 @@
     box-shadow: 0.2rem 0.2rem 0.3rem #391cb9;
   }
   .signOut {
-    transform: translate(-50%,-50%);
-    bottom: 0%;
-    left: 50%;
+    bottom: 3%;
+    left: 43%;
     position: absolute;
     width: fit-content;
     padding: 0.5rem 0.7rem;
