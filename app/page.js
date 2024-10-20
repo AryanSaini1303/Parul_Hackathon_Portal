@@ -22,7 +22,7 @@ export default function Home() {
   useEffect(() => {
     session &&
       router.push(
-        `/LandingPage/${encodeURIComponent(JSON.stringify(session))}`
+        `/LandingPage`
       );
   }, [session]);
   return (

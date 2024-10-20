@@ -1,12 +1,12 @@
 "use client";
 import BackgroundVideo from "@/components/BackgroundVideo";
-import { signOut } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
 
-export default function LandingPage({ params }) {
-  const [session, setSession] = useState();
+export default function LandingPage() {
+  const {data:session,status}=useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -65,10 +65,6 @@ export default function LandingPage({ params }) {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  useEffect(() => {
-    setSession(JSON.parse(decodeURIComponent(params.session)));
-  }, [params]);
 
   // Handle input changes
   const handleInputChange = (e) => {
@@ -153,6 +149,8 @@ export default function LandingPage({ params }) {
     };
     handleDownload();
   }
+
+  if(status=="unauthenticated") return <p>Unauthorised</p>
 
   return (
     <>
