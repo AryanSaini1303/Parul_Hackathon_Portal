@@ -127,12 +127,39 @@ export default function LandingPage({ params }) {
     }
   };
 
+  function downloadStudentData() {;
+    const handleDownload = async () => {
+      try {
+        // Send a request to the backend to download the Excel file
+        const response = await fetch("/api/importStudents");
+        if (!response.ok) {
+          throw new Error("Failed to download file");
+        }
+        // Create a blob from the response data
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        // Create a link element and simulate a click to download the file
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "users_data.xlsx"; // The filename to save the file as
+        document.body.appendChild(a);
+        a.click();
+        // Clean up the URL object and remove the link
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+      } catch (error) {
+        console.error("Error downloading file:", error);
+      }
+    };
+    handleDownload();
+  }
+
   return (
     <>
       {session ? (
         <>
           <BackgroundVideo />
-          <section className={styles.header}>
+          <section className={styles.header} onClick={session&&session.user.email=='yograj.rr@gmail.com'?downloadStudentData:null}>
             <h1>Registration Form</h1>
           </section>
           <div className={styles.card}>
