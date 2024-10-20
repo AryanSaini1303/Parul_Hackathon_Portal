@@ -15,6 +15,11 @@ const Leaderboard = () => {
         const response = await fetch("/api/leaderboard");
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
+        data.forEach(player => {
+          player.score = player.quiz + player.tasks + player.game;
+        });
+        // Sorting data array by score in descending order
+        data.sort((a, b) => b.score - a.score);
         setLeaderboardData(data);
       } catch (error) {
         console.error("Error fetching leaderboard data:", error);
@@ -53,18 +58,22 @@ const Leaderboard = () => {
               <tbody>
                 {leaderboardData.map((entry, index) => (
                   <tr key={entry.id}>
-                    <td>{index+1}</td>
+                    <td>{index + 1}</td>
                     <td>{entry.name}</td>
                     <td>{entry.game}</td>
                     <td>{entry.quiz || "N/A"}</td>
                     <td>{entry.tasks || "N/A"}</td>
-                    <td>{entry.score}</td>
+                    <td>
+                      {parseInt(entry.game) +
+                        parseInt(entry.quiz) +
+                        parseInt(entry.tasks)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           )}
-          {leaderboardData.length === 0 && !loading&& <p>No entries found.</p>}
+          {leaderboardData.length === 0 && !loading && <p>No entries found.</p>}
         </div>
       </>
     );
