@@ -17,13 +17,25 @@ model User {
   id             Int      @id @default(autoincrement())  // Auto-incrementing primary key
   email          String   @unique                       // Unique email for each user
   name           String?                               // Optional full name
-  referralCode String?                     // Placeholder for the link you mentioned
+  referralCode   String?  @unique                             // Placeholder for the link you mentioned
   phoneNumber    String?                               // Optional phone number
-  githubProfile  String?                               // Optional GitHub profile link
+  githubProfile   String?                              // Optional GitHub profile link
   linkedinProfile String?                              // Optional LinkedIn profile link
   createdAt      DateTime @default(now())               // Automatically set when record is created
   updatedAt      DateTime @updatedAt                    // Auto-updates when record is updated
   teamId         String?
-  purpose       String?
-  University    String?
+  purpose        String?
+  University     String?
+}
+
+// Define the Leaderboard model (table)
+model Leaderboard {
+  id      Int     @id @default(autoincrement())  // Auto-incrementing primary key
+  rank    Int     // Rank of the player
+  name    String  // Name of the player
+  game    String  // Game played
+  quiz    String? // Optional quiz name (if applicable)
+  tasks   String? // Optional tasks description (if applicable)
+  score   Int     // Score achieved
+  createdAt DateTime @default(now())               // Automatically set when record is created
 }
