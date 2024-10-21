@@ -183,7 +183,7 @@ export default function LandingPage() {
                     onChange={handleInputChange}
                     required
                     max='10'
-                    placeholder="e.g. 9451088471"
+                    placeholder="e.g. 9155088251"
                   />
                 </section>
                 <section>
