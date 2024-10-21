@@ -6,7 +6,7 @@ import { useSession } from "next-auth/react";
 
 const Leaderboard = () => {
   const { data: session, status } = useSession();
-  const [leaderboardData, setLeaderboardData] = useState([]);np
+  const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
