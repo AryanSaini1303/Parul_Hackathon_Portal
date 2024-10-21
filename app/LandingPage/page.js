@@ -171,16 +171,19 @@ export default function LandingPage() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
+                    placeholder="e.g. Devam"
                   />
                 </section>
                 <section>
                   <label htmlFor="phoneNumber">Contact</label>
                   <input
-                    type="text"
+                    type="number"
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
                     required
+                    max='10'
+                    placeholder="e.g. 9451088471"
                   />
                 </section>
                 <section>
@@ -191,6 +194,7 @@ export default function LandingPage() {
                     value={formData.university}
                     onChange={handleInputChange}
                     required
+                    placeholder="e.g. ABC University"
                   />
                 </section>
                 <section>
@@ -200,6 +204,7 @@ export default function LandingPage() {
                     name="github"
                     value={formData.github}
                     onChange={handleInputChange}
+                    placeholder="e.g. https://github.com/AryanSaini1303"
                   />
                 </section>
               </div>
@@ -217,6 +222,7 @@ export default function LandingPage() {
                     required
                     rows={screenWidth > 426 ? 5 : 3}
                     cols={screenWidth > 426 ? 5 : 3}
+                    placeholder="e.g. I want to participate because....."
                   />
                 </section>
                 <section className={styles.referral}>
