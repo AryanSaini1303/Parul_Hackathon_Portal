@@ -182,7 +182,6 @@ export default function LandingPage() {
                     value={formData.phoneNumber}
                     onChange={handleInputChange}
                     required
-                    max='10'
                     placeholder="e.g. 9155088251"
                   />
                 </section>
