@@ -4,6 +4,7 @@ import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "./page.module.css";
+import Maintenance from "@/components/maintenance";
 
 export default function LandingPage() {
   const {data:session,status}=useSession();
@@ -154,7 +155,7 @@ export default function LandingPage() {
 
   return (
     <>
-      {session ? (
+      {/* {session ? (
         <>
           <BackgroundVideo />
           <section className={styles.header} onClick={session&&session.user.email=='yograj.rr@gmail.com'?downloadStudentData:null}>
@@ -305,7 +306,8 @@ export default function LandingPage() {
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
-      )}
+      )} */}
+      <Maintenance/>
     </>
   );
 }
