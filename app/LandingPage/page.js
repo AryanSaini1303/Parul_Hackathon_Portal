@@ -10,6 +10,7 @@ export default function LandingPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [submitted,setSubmitted]=useState(false);
   const [formData, setFormData] = useState({
     phoneNumber: "",
     name: "",
@@ -113,6 +114,8 @@ export default function LandingPage() {
       console.log("Response:", result);
       if (response.ok) {
         setLoading(false);
+        setSubmitted(true);
+        alert("You have registered successfully");
         signOut({ callbackUrl: "/" }).then(() => {
           router.push("/");
         });
@@ -272,7 +275,7 @@ export default function LandingPage() {
               </section>
               <br />
               <button type="submit" className={styles.submitBtn}>
-                Submit
+                {loading?"Submitting":"Submit"}
               </button>
               <button
                 onClick={() => {
@@ -299,7 +302,7 @@ export default function LandingPage() {
             </form>
           </div>
 
-          {loading && (
+          {/* {loading && (
             <h1
               style={{
                 textAlign: "center",
@@ -311,7 +314,7 @@ export default function LandingPage() {
             >
               Saving User Data
             </h1>
-          )}
+          )} */}
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
