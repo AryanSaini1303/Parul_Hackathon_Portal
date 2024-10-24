@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 import Maintenance from "@/components/maintenance";
 
 export default function LandingPage() {
-  const {data:session,status}=useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -71,7 +71,7 @@ export default function LandingPage() {
   const handleInputChange = (e) => {
     const isValidReferralUrl = (str) => {
       const regex =
-        /^https:\/\/game\.everdawn\.io\/enter\/register\?referral=[a-zA-Z0-9]+$/;
+        /^https:\/\/vision\.hack2skill\.com\/dashboard\/user_public_profile\/\?userId=[a-zA-Z0-9]+&tabIndex=[a-zA-Z]+$/;
       return regex.test(str);
     };
     if (e.target.name == "referral") {
@@ -92,7 +92,7 @@ export default function LandingPage() {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!isValidated) {
-      alert("Enter a valid referral code!");
+      alert("Enter a valid profile link!");
       return false;
     }
     // Extract email from session
@@ -124,7 +124,7 @@ export default function LandingPage() {
     }
   };
 
-  function downloadStudentData() {;
+  function downloadStudentData() {
     const handleDownload = async () => {
       try {
         // Send a request to the backend to download the Excel file
@@ -151,14 +151,21 @@ export default function LandingPage() {
     handleDownload();
   }
 
-  if(status=="unauthenticated") return <p>Unauthorised</p>
+  if (status == "unauthenticated") return <p>Unauthorised</p>;
 
   return (
     <>
-      {/* {session ? (
+      {session ? (
         <>
           <BackgroundVideo />
-          <section className={styles.header} onClick={session&&session.user.email=='yograj.rr@gmail.com'?downloadStudentData:null}>
+          <section
+            className={styles.header}
+            onClick={
+              session && session.user.email == "yograj.rr@gmail.com"
+                ? downloadStudentData
+                : null
+            }
+          >
             <h1>Registration Form</h1>
           </section>
           <div className={styles.card}>
@@ -227,14 +234,15 @@ export default function LandingPage() {
                 </section>
                 <section className={styles.referral}>
                   <label htmlFor={styles.referral}>
-                    Referral code from Everdrawn
+                    {/* Referral code from Everdrawn */}
+                    Go to this link and Register
                   </label>
                   <button type="button">
                     <a
-                      href="https://game.everdawn.io/enter/register/?referral=web3hackselaunch"
+                      href="https://vision.hack2skill.com/event/google-aibuilderslab-9"
                       target="_blank"
                     >
-                      Create EverDrawn Login
+                      Create HACK2SKILL Login
                     </a>
                   </button>
                   <input
@@ -246,7 +254,7 @@ export default function LandingPage() {
                     placeholder={
                       studentCount && isAdmin
                         ? studentCount
-                        : "e.g. https://game.everdawn.io/......"
+                        : "e.g. https://vision.hack2skill.com/dashboard/user_public_profile/?userId=670255dae48eaffdc67bc1a3&tabIndex=about"
                     }
                   />
                   <h1
@@ -257,7 +265,8 @@ export default function LandingPage() {
                       margin: "0",
                     }}
                   >
-                    Go to: Everdrawn profile &rarr; settings &rarr; referral{" "}
+                    Go to: My Profile &rarr; Copy URL from tab &rarr; Paste
+                    Above{" "}
                   </h1>
                 </section>
               </section>
@@ -306,8 +315,8 @@ export default function LandingPage() {
         </>
       ) : (
         <p>Loading...</p> // Show loading state or a message if not signed in
-      )} */}
-      <Maintenance/>
+      )}
+      {/* <Maintenance/> */}
     </>
   );
 }
