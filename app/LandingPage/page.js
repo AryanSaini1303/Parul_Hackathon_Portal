@@ -92,10 +92,10 @@ export default function LandingPage() {
   // Handle form submission
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!isValidated) {
-      alert("Enter a valid profile link!");
-      return false;
-    }
+    // if (!isValidated) {
+    //   alert("Enter a valid profile link!");
+    //   return false;
+    // }
     // Extract email from session
     const email = session?.user?.email; // Ensure session is available
     try {
