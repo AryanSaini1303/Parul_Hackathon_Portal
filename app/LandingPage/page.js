@@ -16,7 +16,7 @@ export default function LandingPage() {
     name: "",
     university: "",
     purpose: "",
-    referral: "",
+    referral: "Referral Code Here",
   });
   const [studentCount, setStudentCount] = useState();
   const [isAdmin, setIsAdmin] = useState(false);
@@ -85,9 +85,9 @@ export default function LandingPage() {
       [e.target.name]: e.target.value,
     });
   };
-  useEffect(() => {
-    console.log(isValidated);
-  }, [isValidated]);
+  // useEffect(() => {
+  //   console.log(isValidated);
+  // }, [isValidated]);
 
   // Handle form submission
   const handleFormSubmit = async (e) => {
@@ -235,10 +235,9 @@ export default function LandingPage() {
                     placeholder="e.g. I want to participate because....."
                   />
                 </section>
-                <section className={styles.referral}>
+                {/* <section className={styles.referral}>
                   <label htmlFor={styles.referral}>
-                    {/* Referral code from Everdrawn */}
-                    Go to this link and Register
+                    Referral code from Everdrawn
                   </label>
                   <button type="button">
                     <a
@@ -248,7 +247,7 @@ export default function LandingPage() {
                       Claim Google Certificate
                     </a>
                   </button>
-                  {/* <input
+                  <input
                     type="text"
                     name="referral"
                     value={formData.referral}
@@ -259,7 +258,7 @@ export default function LandingPage() {
                         ? studentCount
                         : "e.g. https://docs.google.com/forms/d/e/1FAIpQLSecuPoIzvMwboQ5XazNbrAj4Tkz8fcZSDCi3UgeW1ELYqIrfQ/viewform"
                     }
-                  /> */}
+                  />
                   <h1
                     style={{
                       color: "white",
@@ -268,10 +267,10 @@ export default function LandingPage() {
                       margin: "0",
                     }}
                   >
-                    {/* Go to: My Profile &rarr; Copy URL from tab &rarr; Paste
-                    Above{" "} */}
+                    Go to: My Profile &rarr; Copy URL from tab &rarr; Paste
+                    Above{" "}
                   </h1>
-                </section>
+                </section> */}
               </section>
               <br />
               <button type="submit" className={styles.submitBtn}>
