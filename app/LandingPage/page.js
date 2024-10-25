@@ -10,7 +10,7 @@ export default function LandingPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const [submitted,setSubmitted]=useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     phoneNumber: "",
     name: "",
@@ -242,13 +242,13 @@ export default function LandingPage() {
                   </label>
                   <button type="button">
                     <a
-                      href="https://vision.hack2skill.com/event/google-aibuilderslab-9"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSecuPoIzvMwboQ5XazNbrAj4Tkz8fcZSDCi3UgeW1ELYqIrfQ/viewform"
                       target="_blank"
                     >
-                      Create HACK2SKILL Login
+                      Claim Google Certificate
                     </a>
                   </button>
-                  <input
+                  {/* <input
                     type="text"
                     name="referral"
                     value={formData.referral}
@@ -257,9 +257,9 @@ export default function LandingPage() {
                     placeholder={
                       studentCount && isAdmin
                         ? studentCount
-                        : "e.g. https://vision.hack2skill.com/dashboard/user_public_profile/?userId=670255dae48eaffdc67bc1a3&tabIndex=about"
+                        : "e.g. https://docs.google.com/forms/d/e/1FAIpQLSecuPoIzvMwboQ5XazNbrAj4Tkz8fcZSDCi3UgeW1ELYqIrfQ/viewform"
                     }
-                  />
+                  /> */}
                   <h1
                     style={{
                       color: "white",
@@ -268,14 +268,14 @@ export default function LandingPage() {
                       margin: "0",
                     }}
                   >
-                    Go to: My Profile &rarr; Copy URL from tab &rarr; Paste
-                    Above{" "}
+                    {/* Go to: My Profile &rarr; Copy URL from tab &rarr; Paste
+                    Above{" "} */}
                   </h1>
                 </section>
               </section>
               <br />
               <button type="submit" className={styles.submitBtn}>
-                {loading?"Submitting":"Submit"}
+                {loading ? "Submitting" : "Submit"}
               </button>
               <button
                 onClick={() => {
