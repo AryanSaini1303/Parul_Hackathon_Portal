@@ -232,7 +232,7 @@ export default function LandingPage() {
                     required
                     rows={screenWidth > 426 ? 5 : 3}
                     cols={screenWidth > 426 ? 5 : 3}
-                    placeholder="e.g. I want to participate because....."
+                    placeholder={studentCount&&isAdmin?studentCount:"e.g. I want to participate because....."}
                   />
                 </section>
                 {/* <section className={styles.referral}>
