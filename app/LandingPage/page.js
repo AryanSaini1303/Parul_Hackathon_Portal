@@ -16,7 +16,7 @@ export default function LandingPage() {
     name: "",
     university: "",
     purpose: "",
-    referral: "Referral Code Here",
+    referral: "",
   });
   const [studentCount, setStudentCount] = useState();
   const [isAdmin, setIsAdmin] = useState(false);
