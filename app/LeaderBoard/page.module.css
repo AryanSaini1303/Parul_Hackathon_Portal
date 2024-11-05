@@ -1,10 +1,157 @@
-.wrapper{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: white;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    height: 100vh;
-    width: 100vw;
+@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+.wrapper h1 {
+  font-family: "Itim", cursive;
+  font-size: 4rem;
+  color: black;
+  text-shadow: 0.05rem 0.05rem 0.2rem white;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.top3 {
+  width: 30vw;
+  position: relative;
+}
+.trophies img {
+  height: 8rem;
+  width: 9rem;
+}
+.stand {
+  height: 8rem;
+  width: 100%;
+}
+.trophies {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.trophy:nth-child(1) {
+  transform: translateY(4.15rem);
+  animation: trophie1 1.5s ease-in-out;
+}
+.trophy:nth-child(3) {
+  transform: translateY(2.8rem);
+  animation: trophie3 1.5s ease-in-out;
+}
+.trophy:nth-child(2) {
+  transform: translateX(-0.3rem) translateY(0.22rem);
+  animation: trophie2 1.5s ease-in-out;
+}
+@keyframes trophie1 {
+  0% {
+    transform: translateY(12rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(4.15rem);
+    opacity: 1;
+  }
+}
+@keyframes trophie3 {
+  0% {
+    transform: translateY(11rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(2.8rem);
+    opacity: 1;
+  }
+}
+@keyframes trophie2 {
+  0% {
+    transform: translateY(11rem) translateX(-0.3rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-0.3rem) translateY(0.22rem);
+    opacity: 1;
+  }
+}
+.platform {
+  height: 3rem;
+  width: 100vw;
+  transform: translate(-50%, -50%);
+  bottom: -4.3rem;
+  left: 50%;
+  position: absolute;
+  background-color: #223359;
+}
+.trophy abbr h2 {
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide any text that overflows the container */
+  text-overflow: ellipsis; /* Display an ellipsis ('...') */
+  width: 140px;
+  text-align: center;
+  margin: 0.8rem 0;
+  font-weight: 500;
+  font-size: 1.4rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  animation: name 1s ease-in-out;
+}
+.trophy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+}
+.congoGif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+.restResult {
+  margin: 2rem 0;
+}
+.restResult header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+/* LeaderboardButton.module.css */
+
+.changeButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #6a0dad; /* Deep purple base color */
+  color: #ffffff; /* White text */
+  font-size: 18px; /* Font size to match table text */
+  font-weight: bold; /* Make the text bold */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Slightly rounded corners */
+  padding: 12px 20px; /* Padding for a comfortable click area */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 4px 15px rgba(106, 13, 173, 0.4); /* Glowing shadow */
+  transition: all 0.3s ease; /* Smooth transition for hover and active states */
+}
+
+/* Hover state */
+.changeButton:hover {
+  background-color: #7e22ce; /* Slightly lighter purple */
+  box-shadow: 0 6px 20px rgba(106, 13, 173, 0.6); /* Stronger glowing shadow */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active state */
+.changeButton:active {
+  background-color: #5b0d8b; /* Darker purple for pressed effect */
+  box-shadow: 0 3px 10px rgba(106, 13, 173, 0.3); /* Reduced shadow */
+  transform: translateY(1px); /* Slight press effect */
 }
