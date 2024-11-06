@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@prisma/client": "^5.20.0",
+    "@prisma/client": "^5.22.0",
     "are-we-there-yet": "^4.0.2",
     "debug": "^4.3.7",
     "formidable": "^3.5.1",

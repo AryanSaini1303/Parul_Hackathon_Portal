@@ -88,7 +88,7 @@
   position: absolute;
   background-color: #223359;
 }
-.trophy abbr h2 {
+.trophy h3 {
   white-space: nowrap; /* Prevent text from wrapping to the next line */
   overflow: hidden; /* Hide any text that overflows the container */
   text-overflow: ellipsis; /* Display an ellipsis ('...') */
@@ -96,7 +96,7 @@
   text-align: center;
   margin: 0.8rem 0;
   font-weight: 500;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   animation: name 1s ease-in-out;

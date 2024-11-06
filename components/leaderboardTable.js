@@ -8,7 +8,7 @@ function Leaderboard({ leaderboardData }) {
           <tr>
             <th className={styles.header}>Rank</th>
             <th className={styles.header}>Profile_Name</th>
-            <th className={styles.header}>Duration</th>
+            <th className={styles.header}>Quiz</th>
             <th className={styles.header}>Score</th>
           </tr>
         </thead>
@@ -18,7 +18,7 @@ function Leaderboard({ leaderboardData }) {
               <tr key={entry.id} className={styles.row}>
               <td className={styles.cell}>{index + 1}</td>
               <td className={styles.cell}>{entry.name}</td>
-              <td className={styles.cell}>{entry.game}</td>
+              <td className={styles.cell}>{entry.quiz}</td>
               <td className={styles.cell}>
                 {parseInt(entry.game) + parseInt(entry.quiz) + parseInt(entry.tasks)}
               </td>

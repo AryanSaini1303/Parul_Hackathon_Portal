@@ -16,9 +16,9 @@ const Leaderboard = () => {
         const response = await fetch("/api/leaderboard");
         if (!response.ok) throw new Error("Failed to fetch data");
         const data = await response.json();
-        data.forEach((player) => {
-          player.score = player.quiz + player.tasks + player.game;
-        });
+        // data.forEach((player) => {
+        //   player.score = player.quiz + player.tasks + player.game;
+        // });
         // Sorting data array by score in descending order
         data.sort((a, b) => b.score - a.score);
         setLeaderboardData(data);
@@ -59,15 +59,15 @@ const Leaderboard = () => {
               <div className={styles.top3}>
                 <div className={styles.trophies}>
                   <div className={styles.trophy}>
-                    <h2>{leaderboardData[0].name}</h2>
+                    <h3>{leaderboardData[2].name}</h3>
                     <img src="/images/7.png" alt="" />
                   </div>
                   <div className={styles.trophy}>
-                    <h2>{leaderboardData[1].name}</h2>
+                    <h3>{leaderboardData[0].name}</h3>
                     <img src="/images/9.png" alt="" />
                   </div>
                   <div className={styles.trophy}>
-                    <h2>{leaderboardData[2].name}</h2>
+                    <h3>{leaderboardData[1].name}</h3>
                     <img src="/images/10.png" alt="" />
                   </div>
                 </div>
