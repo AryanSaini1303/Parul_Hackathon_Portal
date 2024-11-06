@@ -39,16 +39,33 @@
 }
 .trophy:nth-child(1) {
   transform: translateY(4.15rem);
-  animation: trophie1 1.5s ease-in-out;
+  /* animation: trophie1 1.5s ease-in-out; */
 }
 .trophy:nth-child(3) {
   transform: translateY(2.8rem);
-  animation: trophie3 1.5s ease-in-out;
+  /* animation: trophie3 1.5s ease-in-out; */
 }
 .trophy:nth-child(2) {
   transform: translateX(-0.3rem) translateY(0.22rem);
-  animation: trophie2 1.5s ease-in-out;
+  /* animation: trophie2 1.5s ease-in-out; */
 }
+
+.trophyAnimation1 {
+  animation: trophy1 1.5s ease-in-out;
+}
+
+.trophyAnimation2 {
+  animation: trophy2 1.5s ease-in-out;
+}
+
+.trophyAnimation3 {
+  animation: trophy3 1.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 @keyframes trophie1 {
   0% {
     transform: translateY(12rem);

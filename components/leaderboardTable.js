@@ -20,7 +20,7 @@ function Leaderboard({ leaderboardData }) {
               <td className={styles.cell}>{entry.name}</td>
               <td className={styles.cell}>{entry.quiz}</td>
               <td className={styles.cell}>
-                {parseInt(entry.game) + parseInt(entry.quiz) + parseInt(entry.tasks)}
+                {entry.score}
               </td>
             </tr>
             </>

@@ -10,6 +10,7 @@ const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [tableFlag, setTableFlag] = useState(false);
+  const [click, setClick] = useState(0);
   useEffect(() => {
     const fetchLeaderboard = async () => {
       try {
@@ -21,6 +22,7 @@ const Leaderboard = () => {
         // });
         // Sorting data array by score in descending order
         data.sort((a, b) => b.score - a.score);
+        data.length = 20;
         setLeaderboardData(data);
       } catch (error) {
         console.error("Error fetching leaderboard data:", error);
@@ -30,6 +32,12 @@ const Leaderboard = () => {
     };
     fetchLeaderboard();
   }, []);
+  console.log(leaderboardData);
+
+  function handleClick() {
+    setClick(click + 1);
+    console.log(click);
+  }
 
   if (
     status == "unauthenticated" ||
@@ -50,7 +58,7 @@ const Leaderboard = () => {
             {!tableFlag ? "Show table" : "Show Top 3"}
           </button>
         )}
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} onClick={click<3?handleClick:null}>
           <h1>LEADERBOARD</h1>
           {loading ? (
             <p>Fetching Data...</p>
@@ -58,18 +66,18 @@ const Leaderboard = () => {
             <div className={styles.wrapper1}>
               <div className={styles.top3}>
                 <div className={styles.trophies}>
-                  <div className={styles.trophy}>
-                    <h3>{leaderboardData[2].name}</h3>
-                    <img src="/images/7.png" alt="" />
-                  </div>
-                  <div className={styles.trophy}>
-                    <h3>{leaderboardData[0].name}</h3>
-                    <img src="/images/9.png" alt="" />
-                  </div>
-                  <div className={styles.trophy}>
-                    <h3>{leaderboardData[1].name}</h3>
-                    <img src="/images/10.png" alt="" />
-                  </div>
+                    <div className={styles.trophy} style={(click==1 || click==2 || click==3)?{animation:" trophie1 1.5s ease-in-out"}:{opacity:0}}>
+                      <h3>{leaderboardData[2].name}</h3>
+                      <img src="/images/7.png" alt="" />
+                    </div>
+                    <div className={styles.trophy} style={(click==3)?{animation:" trophie2 1.5s ease-in-out"}:{opacity:0}}>
+                      <h3>{leaderboardData[0].name}</h3>
+                      <img src="/images/9.png" alt="" />
+                    </div>
+                    <div className={styles.trophy} style={(click==2 || click==3)?{animation:" trophie3 1.5s ease-in-out"}:{opacity:0}}>
+                      <h3>{leaderboardData[1].name}</h3>
+                      <img src="/images/10.png" alt="" />
+                    </div>
                 </div>
                 <img src="/images/8.png" alt="" className={styles.stand} />
                 <div className={styles.platform}></div>
