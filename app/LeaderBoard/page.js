@@ -60,7 +60,7 @@ const Leaderboard = () => {
         )}
         <div
           className={styles.wrapper}
-          onClick={click < 3 ? handleClick : null}
+          onClick={click < 3 && !loading ? handleClick : null}
         >
           <h1 className={styles.header}>LEADERBOARD</h1>
           {loading ? (
