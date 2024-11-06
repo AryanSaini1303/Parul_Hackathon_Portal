@@ -58,34 +58,60 @@ const Leaderboard = () => {
             {!tableFlag ? "Show table" : "Show Top 3"}
           </button>
         )}
-        <div className={styles.wrapper} onClick={click<3?handleClick:null}>
-          <h1>LEADERBOARD</h1>
+        <div
+          className={styles.wrapper}
+          onClick={click < 3 ? handleClick : null}
+        >
+          <h1 className={styles.header}>LEADERBOARD</h1>
           {loading ? (
-            <p>Fetching Data...</p>
+            <h1>Fetching Data...</h1>
           ) : !tableFlag ? (
             <div className={styles.wrapper1}>
               <div className={styles.top3}>
                 <div className={styles.trophies}>
-                    <div className={styles.trophy} style={(click==1 || click==2 || click==3)?{animation:" trophie1 1.5s ease-in-out"}:{opacity:0}}>
-                      <h3>{leaderboardData[2].name}</h3>
-                      <img src="/images/7.png" alt="" />
-                    </div>
-                    <div className={styles.trophy} style={(click==3)?{animation:" trophie2 1.5s ease-in-out"}:{opacity:0}}>
-                      <h3>{leaderboardData[0].name}</h3>
-                      <img src="/images/9.png" alt="" />
-                    </div>
-                    <div className={styles.trophy} style={(click==2 || click==3)?{animation:" trophie3 1.5s ease-in-out"}:{opacity:0}}>
-                      <h3>{leaderboardData[1].name}</h3>
-                      <img src="/images/10.png" alt="" />
-                    </div>
+                  <div
+                    className={styles.trophy}
+                    style={
+                      click == 1 || click == 2 || click == 3
+                        ? { animation: " trophie1 1.5s ease-in-out" }
+                        : { opacity: 0 }
+                    }
+                  >
+                    <h3>{leaderboardData[2].name}</h3>
+                    <img src="/images/7.png" alt="" />
+                  </div>
+                  <div
+                    className={styles.trophy}
+                    style={
+                      click == 3
+                        ? { animation: " trophie2 1.5s ease-in-out" }
+                        : { opacity: 0 }
+                    }
+                  >
+                    <h3>{leaderboardData[0].name}</h3>
+                    <img src="/images/9.png" alt="" />
+                  </div>
+                  <div
+                    className={styles.trophy}
+                    style={
+                      click == 2 || click == 3
+                        ? { animation: " trophie3 1.5s ease-in-out" }
+                        : { opacity: 0 }
+                    }
+                  >
+                    <h3>{leaderboardData[1].name}</h3>
+                    <img src="/images/10.png" alt="" />
+                  </div>
                 </div>
                 <img src="/images/8.png" alt="" className={styles.stand} />
                 <div className={styles.platform}></div>
-                <img
-                  src="/images/congratulation.gif"
-                  alt=""
-                  className={styles.congoGif}
-                />
+                {click == 3 && (
+                  <img
+                    src="/images/congratulation.gif"
+                    alt=""
+                    className={styles.congoGif}
+                  />
+                )}
               </div>
             </div>
           ) : (
