@@ -18,7 +18,7 @@ export default function Home() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(screenWidth);
+  // console.log(screenWidth);
   useEffect(() => {
     session &&
       router.push(
@@ -36,7 +36,7 @@ export default function Home() {
           <div className={styles.details}>
             <h1>Registrations Open</h1>
             <div className={styles.specifics}>
-              <h2>Till 25th October</h2>
+              <h2>Till 4th December</h2>
               <p>
                 <span>
                   <svg
@@ -94,6 +94,8 @@ export default function Home() {
               <img src="/images/Nexium_logo.png" alt="" />
               <img src="/images/RYM_logo.png" alt="" />
               <img src="/images/University_logo.png" alt="" />
+              <img src="/images/applixera_logo.png" alt="" />
+              <img src="/images/fashnovators_logo.png" alt="" />
             </section>
           </div>
           <div className={styles.registerbtn}>
