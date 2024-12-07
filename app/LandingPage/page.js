@@ -67,7 +67,10 @@ export default function LandingPage() {
           const data = await response.json();
           console.log("data: ", data);
           setRegistered(data);
-          localStorage.setItem("registrationFlag",data);
+          if (typeof window !== "undefined") {
+            // Ensure this code runs only in the browser
+            localStorage.setItem("registrationFlag", data);
+          }
           setRegistrationFlagLoading(false);
         } catch (error) {
           setRegistrationFlagLoading(false);
