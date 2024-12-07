@@ -14,6 +14,8 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .btn:hover {
@@ -42,4 +44,40 @@
 
 .btn:hover:before {
   left: 150%;
+}
+.signOut {
+  display: none;
+  width: clamp(4rem, 8vw, 12rem);
+  /* margin: auto; */
+  font-size: clamp(0.8rem, 2.5vw, 1.5rem);
+  padding: 0.5rem;
+  border: none;
+  background-color: #9946c8;
+  color: white;
+  font-weight: 600;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 426px) {
+  .signOut {
+    bottom: 3%;
+    left: 43%;
+    position: absolute;
+    width: fit-content;
+    padding: 0.5rem 0.7rem;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .signOut:hover {
+    transform: none; /* Prevent scaling on hover */
+    box-shadow: none;
+  }
+  .signOut:active {
+    transform: none; /* Prevent scaling on click */
+    opacity: none;
+    box-shadow: none;
+  }
 }

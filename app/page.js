@@ -5,6 +5,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import BackgroundVideo from "@/components/BackgroundVideo";
 import AnimatedGlobe from "@/components/animatedGlobe";
+import Button from "@/components/button";
 export default function Home() {
   const { data: session } = useSession();
   const router = useRouter();
@@ -21,10 +22,7 @@ export default function Home() {
   }, []);
   // console.log(screenWidth);
   useEffect(() => {
-    session &&
-      router.push(
-        `/LandingPage`
-      );
+    session && router.push(`/LandingPage`);
   }, [session]);
   return (
     <>
@@ -99,19 +97,16 @@ export default function Home() {
               <img src="/images/fashnovators_logo.png" alt="" />
             </section>
           </div>
-          <div className={styles.registerbtn}>
-            <button
+          <div className={styles.registerbtn} style={{padding:"1rem 0"}}>
+            <Button
+              text={"Register Now"}
               onClick={() => {
                 signIn("google");
               }}
-            >
-              Register Now
-            </button>
+            />
           </div>
         </div>
-        {screenWidth > 426 && (
-          <AnimatedGlobe/>
-        )}
+        {screenWidth > 426 && <AnimatedGlobe />}
       </section>
     </>
   );
