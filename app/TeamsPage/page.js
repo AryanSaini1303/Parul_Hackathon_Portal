@@ -23,6 +23,7 @@ export default function TeamsPage() {
   }, []);
 
   if (status == "unauthenticated") return <p>Unauthorised</p>;
+  if(localStorage.getItem("registrationFlag")=='false') return <p>You are not registered yet!</p>
 
   return (
     status == "authenticated" && (
