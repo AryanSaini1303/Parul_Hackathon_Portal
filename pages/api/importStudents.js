@@ -1,5 +1,3 @@
-// pages/api/download.js
-
 import { PrismaClient } from "@prisma/client";
 import xlsx from "xlsx";
 

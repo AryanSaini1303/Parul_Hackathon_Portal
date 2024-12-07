@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import BackgroundVideo from "@/components/BackgroundVideo";
+import AnimatedGlobe from "@/components/animatedGlobe";
 export default function Home() {
   const { data: session } = useSession();
   const router = useRouter();
@@ -109,11 +110,7 @@ export default function Home() {
           </div>
         </div>
         {screenWidth > 426 && (
-          <img
-            src="/videos/gif_blob.gif"
-            alt="Animated GIF"
-            className={styles.animatedGif}
-          />
+          <AnimatedGlobe/>
         )}
       </section>
     </>

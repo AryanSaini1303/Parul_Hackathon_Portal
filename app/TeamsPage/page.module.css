@@ -1,0 +1,35 @@
+.info h1 {
+  margin: 1rem 0;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: clamp(1.5rem, 2vw, 3rem);
+}
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #08070dd7;
+  width: 70vw;
+  margin: auto;
+  border-radius: 10px;
+  padding: 0 2rem;
+  /* border: dashed white 3px; */
+  box-shadow: 0 0 1rem black;
+  backdrop-filter: blur(10px);
+}
+.card section{
+  display: flex;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: clamp(4rem, 2vh, 10rem);
+    padding: clamp(3rem, 2vh, 4rem) 0;
+}
