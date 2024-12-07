@@ -203,7 +203,7 @@ export default function LandingPage() {
     status == "authenticated" && (
       <>
         {session ? (
-          !registrationFlagLoading ? (
+          !registrationFlagLoading && !registered ? (
             <>
               <BackgroundVideo />
               <section
