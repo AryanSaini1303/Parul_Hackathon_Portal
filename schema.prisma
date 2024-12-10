@@ -26,6 +26,8 @@ model User {
   teamId         String?
   purpose        String?
   University     String?
+  teamName       String?
+  role           String? 
 }
 
 // Define the Leaderboard model (table)
