@@ -79,29 +79,25 @@ export default function TeamsPage() {
             });
             const data1 = await response1.json();
             let matchFound = false;
-
-data1.forEach((element, index) => {
-  const teamNameLower = teamName.toLowerCase();
-  
-  // Ensure `teamName` exists and is valid
-  if (element.teamName && element.teamName.toLowerCase() === teamNameLower) {
-    alert("This team name is already taken!");
-    setShowCodeFlag(false);
-    setLoading(false);
-    matchFound = true; // Set flag and stop further checks
-    return;
-  }
-
-  // Log for debugging
-  console.log("index:", index, "element.teamName:", element.teamName, "teamName:", teamName);
-
-  // If this is the last element and no match has been found
-  if (index === data1.length - 1 && !matchFound) {
-    console.log("No match found, generating code...");
-    setGeneratedCode("PHT" + makeid(8));
-  }
-});
-
+            data1.forEach((element, index) => {
+              const teamNameLower = teamName.toLowerCase();
+              // Ensure `teamName` exists and is valid
+              if (
+                element.teamName &&
+                element.teamName.toLowerCase() === teamNameLower
+              ) {
+                alert("This team name is already taken!");
+                setShowCodeFlag(false);
+                setLoading(false);
+                matchFound = true; // Set flag and stop further checks
+                return;
+              }
+              // If this is the last element and no match has been found
+              if (index === data1.length - 1 && !matchFound) {
+                console.log("No match found, generating code...");
+                setGeneratedCode("PHT" + makeid(8));
+              }
+            });
           } else {
             alert("A team is already registered with this email id");
             setTeamName("");
