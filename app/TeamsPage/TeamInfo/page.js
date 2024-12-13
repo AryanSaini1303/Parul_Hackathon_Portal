@@ -4,7 +4,7 @@ import AnimatedGlobe from "@/components/animatedGlobe";
 import BackgroundVideo from "@/components/BackgroundVideo";
 import Button from "@/components/button";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 
 export default function TeamsPage() {
@@ -62,7 +62,7 @@ export default function TeamsPage() {
   }
 
   return (
-    <Suspense fallback={"Loading..."}>
+    <Suspense fallback={<div>Loading...</div>}>
       {status == "authenticated" && (
         <>
           <BackgroundVideo />
