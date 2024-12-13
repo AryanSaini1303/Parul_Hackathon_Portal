@@ -99,7 +99,7 @@ export default function Home() {
           </div>
           <div className={styles.registerbtn} style={{padding:"1rem 0"}}>
             <Button
-              text={"Register Now"}
+              text={"Login In"}
               onClick={() => {
                 signIn("google");
               }}
