@@ -10,13 +10,16 @@ export default async function handler(req, res) {
         where: {
           email: query,
         },
+        select:{
+          teamId:true,
+        }
       });
       console.log(data);
       if (data) {
-        res.status(200).json(true);
+        res.status(200).json({data:data, message:true});
       }
       else{
-        res.status(200).json(false)
+        res.status(200).json({message:false})
       }
     } catch (error) {
       res.status(500).json({ error: error.message });

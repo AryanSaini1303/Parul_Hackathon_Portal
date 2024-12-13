@@ -84,7 +84,14 @@ export default function LandingPage() {
   }, [session]);
 
   useEffect(() => {
-    registered && router.push("/TeamsPage");
+    if (registered.message) {
+      console.log("data: ", registered.data);
+      if (registered.data.teamId) {
+        router.push(`/TeamsPage/TeamInfo?q=${registered.data.teamId}`);
+      } else {
+        router.push("/TeamsPage");
+      }
+    }
   }, [registered]);
 
   useEffect(() => {

@@ -47,7 +47,7 @@ export default function TeamsPage() {
             alert("You have successfully joined the team 🎉");
             setInputFlag(false);
             setJoinFlag(false);
-            router.push('/TeamsPage');
+            router.push(`/TeamsPage/TeamInfo?q=${teamId}`);
           } else if ((data.message = "Already a member of a team")) {
             alert(`You are already a member of the team "${data.teamName}"`);
             setLoading(false);
