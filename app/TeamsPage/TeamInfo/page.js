@@ -62,8 +62,8 @@ export default function TeamsPage() {
   }
 
   return (
-    <Suspense>
-      {status == "authenticated" && (nm 
+    <Suspense fallback={"Loading..."}>
+      {status == "authenticated" && (
         <>
           <BackgroundVideo />
           <div className={styles.container}>
