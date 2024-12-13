@@ -32,7 +32,7 @@ export default function TeamsPage() {
       const setTeamId = async () => {
         try {
           const response = await fetch(
-            `/api/setTeamId?email=${session.user.email}&teamId=${generatedCode}&teamName=${teamName}`,
+            `/api/setTeamId?email=${session.user.email}&teamId=${generatedCode}&teamName=${teamName}&role=Leader`,
             {
               method: "POST",
               headers: {
@@ -68,7 +68,7 @@ export default function TeamsPage() {
             }
           );
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
 
           if (!data.teamId) {
             const response1 = await fetch(`/api/getAllTeamNames`, {
@@ -95,12 +95,13 @@ export default function TeamsPage() {
               // If this is the last element and no match has been found
               if (index === data1.length - 1 && !matchFound) {
                 console.log("No match found, generating code...");
-                setGeneratedCode("PHT" + makeid(8));
+                setGeneratedCode("PHV" + makeid(8));
               }
             });
           } else {
-            alert("A team is already registered with this email id");
-            setTeamName("");
+            alert("You are already a member of a team!");
+            setTeamName();
+            setLoading(false);
             setShowCodeFlag(false);
           }
         } catch (error) {

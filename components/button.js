@@ -7,7 +7,7 @@ export default function Button({
   top,
   right,
   margin,
-  name,
+  fontSize,
 }) {
   return (
     <button
@@ -19,6 +19,7 @@ export default function Button({
         top: top,
         right: right,
         margin: margin,
+        fontSize: fontSize,
       }}
     >
       {text}

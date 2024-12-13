@@ -68,9 +68,6 @@
     width: fit-content;
     padding: 0.5rem 0.7rem;
   }
-}
-
-@media only screen and (max-width: 375px) {
   .signOut:hover {
     transform: none; /* Prevent scaling on hover */
     box-shadow: none;
@@ -79,5 +76,11 @@
     transform: none; /* Prevent scaling on click */
     opacity: none;
     box-shadow: none;
+  }
+  .btn:hover:before {
+    left: -100%;
+  }
+  .btn{
+    font-size: 0.7rem;
   }
 }
