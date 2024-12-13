@@ -87,7 +87,10 @@ export default function LandingPage() {
     if (registered.message) {
       console.log("data: ", registered.data);
       if (registered.data.teamId) {
-        router.push(`/TeamsPage/TeamInfo?q=${registered.data.teamId}`);
+        if (typeof window !== "undefined") {
+          localStorage.setItem("teamId", registered.data.teamId);
+        }
+        router.push("/TeamsPage/TeamInfo");
       } else {
         router.push("/TeamsPage");
       }

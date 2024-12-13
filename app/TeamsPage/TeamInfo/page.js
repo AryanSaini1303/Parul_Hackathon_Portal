@@ -4,7 +4,6 @@ import AnimatedGlobe from "@/components/animatedGlobe";
 import BackgroundVideo from "@/components/BackgroundVideo";
 import Button from "@/components/button";
 import { signOut, useSession } from "next-auth/react";
-import { useRouter } from "next/router";
 import { Suspense, useEffect, useState } from "react";
 
 export default function TeamsPage() {
@@ -12,10 +11,12 @@ export default function TeamsPage() {
   const { data: session, status } = useSession();
   const [loading, setLoading] = useState(true);
   const [teamMembers, setTeamMembers] = useState();
-  const router = useRouter();
-  const teamId = router.query.q;
-
   const [copyClick, setCopyClick] = useState(false);
+  let teamId;
+  if (typeof window !== "undefined") {
+    teamId = localStorage.getItem("teamId");
+  }
+  console.log(teamId);
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     const handleResize = () => {
@@ -98,8 +99,8 @@ export default function TeamsPage() {
                           <svg
                             viewBox="0 0 512 512"
                             fill="currentColor"
-                            height="1em"
-                            width="1em"
+                            height="1.5rem"
+                            width="1.5rem"
                           >
                             <path
                               fill="none"
