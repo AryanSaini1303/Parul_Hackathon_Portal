@@ -65,7 +65,7 @@ export default function LandingPage() {
             throw new Error(`HTTP error! status: ${response.status}`);
           }
           const data = await response.json();
-          console.log("data: ", data);
+          // console.log("data: ", data);
           setRegistered(data);
           if (typeof window !== "undefined") {
             localStorage.setItem("registrationFlag", data.message);
@@ -84,15 +84,23 @@ export default function LandingPage() {
   }, [session]);
 
   useEffect(() => {
-    if (registered.message) {
-      console.log("data: ", registered.data);
-      if (registered.data.teamId) {
-        if (typeof window !== "undefined") {
-          localStorage.setItem("teamId", registered.data.teamId);
+    console.log(registered);
+    if (registered && !registrationFlagLoading) {
+      if (registered.message) {
+        // console.log("data: ", registered.data);
+        if (registered.data.teamId) {
+          if (typeof window !== "undefined") {
+            localStorage.setItem("teamId", registered.data.teamId);
+          }
+          router.push("/TeamsPage/TeamInfo");
+        } else {
+          router.push("/TeamsPage");
         }
-        router.push("/TeamsPage/TeamInfo");
       } else {
-        router.push("/TeamsPage");
+        alert(
+          "Registrations are closed!"
+        );
+        signOut({ callbackUrl: "/" });
       }
     }
   }, [registered]);
@@ -164,7 +172,7 @@ export default function LandingPage() {
         }),
       });
       const result = await response.json();
-      console.log("Response:", result);
+      // console.log("Response:", result);
       if (response.ok) {
         setLoading(false);
         setSubmitted(true);
@@ -213,7 +221,7 @@ export default function LandingPage() {
     status == "authenticated" && (
       <>
         {session ? (
-          !registrationFlagLoading && !registered ? (
+          !registrationFlagLoading && !registered.message ? (
             <>
               <BackgroundVideo />
               <section

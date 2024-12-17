@@ -41,7 +41,7 @@ export default function TeamsPage() {
             }
           );
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           if (data == "ok") {
             setShowCodeFlag(true);
             setLoading(false);
@@ -94,7 +94,7 @@ export default function TeamsPage() {
               }
               // If this is the last element and no match has been found
               if (index === data1.length - 1 && !matchFound) {
-                console.log("No match found, generating code...");
+                // console.log("No match found, generating code...");
                 setGeneratedCode("PHV" + makeid(8));
               }
             });
@@ -117,7 +117,7 @@ export default function TeamsPage() {
     setTeamName(e.target.squadName.value);
     setLoading(true);
     setShowCodeFlag(true);
-    console.log(e.target.squadName.value);
+    // console.log(e.target.squadName.value);
   }
 
   function handleChange(e) {

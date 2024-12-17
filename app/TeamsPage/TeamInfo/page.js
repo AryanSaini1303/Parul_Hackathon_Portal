@@ -16,7 +16,7 @@ export default function TeamsPage() {
   if (typeof window !== "undefined") {
     teamId = localStorage.getItem("teamId");
   }
-  console.log(teamId);
+  // console.log(teamId);
   useEffect(() => {
     setScreenWidth(window.innerWidth);
     const handleResize = () => {
@@ -38,7 +38,7 @@ export default function TeamsPage() {
           },
         });
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setTeamMembers(data);
         setLoading(false);
       } catch (error) {

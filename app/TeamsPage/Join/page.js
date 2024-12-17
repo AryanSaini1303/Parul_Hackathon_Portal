@@ -42,7 +42,7 @@ export default function TeamsPage() {
             }
           );
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           if (data == "ok") {
             alert("You have successfully joined the team 🎉");
             setInputFlag(false);
@@ -74,7 +74,7 @@ export default function TeamsPage() {
             },
           });
           const data = await response.json();
-          console.log(data);
+          // console.log(data);
           let alreadyJoinedFlag = false;
           data.map((element) => {
             if (element.email == session.user.email) {
@@ -112,7 +112,7 @@ export default function TeamsPage() {
     setTeamId(e.target.teamId.value);
     setLoading(true);
     setShowCodeFlag(true);
-    console.log(e.target.teamId.value);
+    // console.log(e.target.teamId.value);
   }
 
   function handleChange(e) {

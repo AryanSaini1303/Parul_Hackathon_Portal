@@ -14,7 +14,7 @@ export default async function handler(req, res) {
           teamId:true,
         }
       });
-      console.log(data);
+      // console.log(data);
       if (data) {
         res.status(200).json({data:data, message:true});
       }
