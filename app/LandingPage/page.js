@@ -68,7 +68,7 @@ export default function LandingPage() {
           console.log("data: ", data);
           setRegistered(data);
           if (typeof window !== "undefined") {
-            localStorage.setItem("registrationFlag", data);
+            localStorage.setItem("registrationFlag", data.message);
           }
           /* The error occurs because the code gets compiled in the server (in localhost or server-side rendering in production), localStorage object does not exist.
           To solve this we can check if the window is defined or not as localStorage is an object inside the window object. The window object will not be defined in the server and hence the localStorage code will not be executed in the server.
