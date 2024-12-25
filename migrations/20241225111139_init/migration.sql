@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Leaderboard" ALTER COLUMN "rank" DROP NOT NULL,
+ALTER COLUMN "game" DROP NOT NULL,
+ALTER COLUMN "score" DROP NOT NULL;

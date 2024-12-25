@@ -1,28 +1,24 @@
-import styles from './leaderboardTable.module.css';
+import styles from "./leaderboardTable.module.css";
 
 function Leaderboard({ leaderboardData }) {
   return (
-    <div className={styles['table-wrapper']}>
+    <div className={styles["table-wrapper"]}>
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={styles.header}>Rank</th>
-            <th className={styles.header}>Profile_Name</th>
-            <th className={styles.header}>Quiz</th>
-            <th className={styles.header}>Score</th>
+            <th className={styles.header}>S.no.</th>
+            <th className={styles.header}>Team Name</th>
+            <th className={styles.header}>Team Id</th>
           </tr>
         </thead>
         <tbody>
           {leaderboardData.map((entry, index) => (
             <>
               <tr key={entry.id} className={styles.row}>
-              <td className={styles.cell}>{index + 1}</td>
-              <td className={styles.cell}>{entry.name}</td>
-              <td className={styles.cell}>{entry.quiz}</td>
-              <td className={styles.cell}>
-                {entry.score}
-              </td>
-            </tr>
+                <td className={styles.cell}>{index+1}</td>
+                <td className={styles.cell}>{entry.teamName}</td>
+                <td className={styles.cell}>{entry.teamId}</td>
+              </tr>
             </>
           ))}
         </tbody>

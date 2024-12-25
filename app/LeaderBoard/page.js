@@ -9,7 +9,7 @@ const Leaderboard = () => {
   const { data: session, status } = useSession();
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [tableFlag, setTableFlag] = useState(false);
+  const [tableFlag, setTableFlag] = useState(true);
   const [click, setClick] = useState(0);
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -22,7 +22,7 @@ const Leaderboard = () => {
         // });
         // Sorting data array by score in descending order
         data.sort((a, b) => b.score - a.score);
-        data.length = 20;
+        // data.length = 20;
         setLeaderboardData(data);
       } catch (error) {
         console.error("Error fetching leaderboard data:", error);
@@ -48,7 +48,7 @@ const Leaderboard = () => {
     return (
       <>
         <BackgroundVideo />
-        {!loading && (
+        {/* {!loading && (
           <button
             onClick={() => {
               setTableFlag(!tableFlag);
@@ -57,12 +57,12 @@ const Leaderboard = () => {
           >
             {!tableFlag ? "Show table" : "Show Top 3"}
           </button>
-        )}
+        )} */}
         <div
           className={styles.wrapper}
           onClick={click < 3 && !loading ? handleClick : null}
         >
-          <h1 className={styles.header}>LEADERBOARD</h1>
+          <h1 className={styles.header}>Results</h1>
           {loading ? (
             <h1>Fetching Data...</h1>
           ) : !tableFlag ? (

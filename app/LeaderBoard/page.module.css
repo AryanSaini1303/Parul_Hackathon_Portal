@@ -11,10 +11,10 @@
   width: 100vw;
 }
 .header {
-  font-family: "Itim", cursive;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 4rem;
-  color: black;
-  text-shadow: 0.05rem 0.05rem 0.2rem white;
+  color: white;
+  text-shadow: 0.05rem 0.05rem 0.2rem black;
   position: absolute;
   top: 5%;
   left: 50%;
