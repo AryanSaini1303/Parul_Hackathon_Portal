@@ -8,7 +8,7 @@ import LeaderboardTable from "@/components/leaderboardTable.js";
 const Leaderboard = () => {
   const { data: session, status } = useSession();
   const [leaderboardData, setLeaderboardData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);3
   const [tableFlag, setTableFlag] = useState(true);
   const [click, setClick] = useState(0);
   useEffect(() => {
@@ -39,12 +39,12 @@ const Leaderboard = () => {
     console.log(click);
   }
 
-  if (
-    status == "unauthenticated" ||
-    (session && session.user.email != "yograj.rr@gmail.com")
-  ) {
-    return <p>Unauthorised</p>;
-  } else {
+  // if (
+  //   status == "unauthenticated" ||
+  //   (session && session.user.email != "yograj.rr@gmail.com")
+  // ) {
+  //   return <p>Unauthorised</p>;
+  // } else {
     return (
       <>
         <BackgroundVideo />
@@ -122,6 +122,6 @@ const Leaderboard = () => {
       </>
     );
   }
-};
+// };
 
 export default Leaderboard;
