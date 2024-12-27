@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   try {
     const leaderboard = await prisma.leaderboard.findMany({
       orderBy: {
-        score: 'desc', // Order by score in descending order
+        teamName: 'asc', // Order by score in descending order
       },
     });
     
