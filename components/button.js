@@ -8,6 +8,7 @@ export default function Button({
   right,
   margin,
   fontSize,
+  type,
 }) {
   return (
     <button
@@ -21,6 +22,7 @@ export default function Button({
         margin: margin,
         fontSize: fontSize,
       }}
+      type={type}
     >
       {text}
     </button>

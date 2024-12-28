@@ -1,0 +1,120 @@
+.container {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Arial", sans-serif;
+  color: white;
+  padding: 0 1rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.evaluationContainer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  width: 50%;
+  max-width: 400px;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.info {
+  margin-bottom: 2rem;
+}
+
+.info h1,
+.info h2 {
+  margin: 0.5rem 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+.evaluationContainer form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.evaluationContainer form label {
+  margin: 0.5rem 0 0.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.evaluationContainer form input {
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.evaluationContainer form input:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0px 2px 2px rgba(255, 255, 255, 0.8);
+  outline: none;
+}
+
+.evaluationContainer form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.evaluationContainer form input[type="number"]::-webkit-inner-spin-button,
+.evaluationContainer form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.evaluationContainer form input[type="number"] {
+  text-align: center;
+}
+
+.evaluationContainer form input:focus::placeholder {
+  color: transparent;
+}
+
+.evaluationContainer form button {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.evaluationContainer form button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.evaluationContainer form button:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+  .evaluationContainer {
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .evaluationContainer form label {
+    font-size: 0.9rem;
+  }
+
+  .evaluationContainer form input {
+    font-size: 0.9rem;
+  }
+
+  .evaluationContainer form button {
+    font-size: 1rem;
+  }
+}
