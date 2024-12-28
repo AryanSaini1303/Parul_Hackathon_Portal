@@ -118,6 +118,7 @@ export default function MarkingPage({ params }) {
               type="number"
               name="Innovation"
               max={10}
+              min={0}
               step={0.01}
               required
             />
@@ -126,6 +127,7 @@ export default function MarkingPage({ params }) {
               type="number"
               name="Uniqueness"
               max={10}
+              min={0}
               step={0.01}
               required
             />
@@ -134,6 +136,7 @@ export default function MarkingPage({ params }) {
               type="number"
               name="Feasibility"
               max={10}
+              min={0}
               step={0.01}
               required
             />
@@ -142,6 +145,7 @@ export default function MarkingPage({ params }) {
               type="number"
               name="Presentation"
               max={10}
+              min={0}
               step={0.01}
               required
             />
@@ -150,6 +154,7 @@ export default function MarkingPage({ params }) {
               type="number"
               name="Readiness"
               max={10}
+              min={0}
               step={0.01}
               required
             />
