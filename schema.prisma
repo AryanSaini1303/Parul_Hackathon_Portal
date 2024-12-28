@@ -46,8 +46,8 @@ model Leaderboard {
 
 model Evaluation{
   id              Int @id @default(autoincrement())
-  teamId          String
-  teamName        String
+  teamId          String @unique
+  teamName        String 
   evaluatorName   String
   evaluatorEmail  String
   Innovation      Float

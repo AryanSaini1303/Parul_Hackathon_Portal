@@ -20,13 +20,17 @@
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-
+.container>button{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
 .info {
   margin-bottom: 2rem;
 }
 
 .info h1,
-.info h2 {
+.info h3 {
   margin: 0.5rem 0;
   font-weight: 600;
   text-align: center;
